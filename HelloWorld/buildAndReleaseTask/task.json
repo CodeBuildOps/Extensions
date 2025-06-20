@@ -1,0 +1,42 @@
+{
+  "id": "690d1eb0-4a97-11f0-87f9-3b0325b529c8",
+  "name": "HelloWorld",
+  "friendlyName": "Hello World",
+  "description": "Prints Hello World to the console",
+  "author": "Abhishek Kumar Singh",
+  "helpMarkDown": "This task prints a message to the console.",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "runsOn": [
+    "Agent",
+    "DeploymentGroup"
+  ],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "0"
+  },
+  "instanceNameFormat": "Prints Hello $(name)",
+  "inputs": [
+    {
+      "name": "name",
+      "type": "string",
+      "label": "Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Enter your name to print to the console"
+    }   
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "sample.ps1",
+      "platforms": [
+        "windows"
+      ],
+      "workingDirectory": "$(currentDirectory)"
+    }
+  }
+}
