@@ -7,10 +7,8 @@ trigger:
     - main
 
 variables:
-  - group: 'Pipelines Global'
-  - name: DDTIGeneratorSolution
-    value: 'DDTIGenerator\Sources\DDTIGenerator.sln'
-  - template: /Deployment/Pipelines/Variables/variables-si14.yml@SI
+  - name: devAzureOrganizationUrl
+    value: 'https://pkgs.dev.azure.com/AbhishekORG'
 
 pool:
   vmImage: 'windows-latest'
