@@ -34,7 +34,7 @@
   ],
   "execution": {
     "PowerShell3": {
-      "target": "sample.ps1",
+      "target": "HelloWorld.ps1",
       "platforms": [
         "windows"
       ],
