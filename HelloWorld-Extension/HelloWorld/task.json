@@ -1,10 +1,10 @@
 {
-  "id": "690d1eb0-4a97-11f0-87f9-3b0325b529c8",
+  "id": "efb174e0-5332-11f0-9fc1-1d1ce874fb06",
   "name": "HelloWorld",
-  "friendlyName": "Hello World",
-  "description": "Prints Hello World to the console",
+  "friendlyName": "Hello World Task",
+  "description": "Prints Hello World to the console.",
   "author": "Abhishek Kumar Singh",
-  "helpMarkDown": "This task prints a message to the console.",
+  "helpMarkDown": "This task welcome user to the console.",
   "category": "Utility",
   "visibility": [
     "Build",
@@ -14,12 +14,14 @@
     "Agent",
     "DeploymentGroup"
   ],
+  "demands": [],
   "version": {
-    "Major": "1",
+    "Major": "2",
     "Minor": "0",
-    "Patch": "0"
+    "Patch": "1"
   },
-  "instanceNameFormat": "Prints Hello $(name)",
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Hello ",
   "inputs": [
     {
       "name": "name",
@@ -28,7 +30,7 @@
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "Enter your name to print to the console"
-    }   
+    }
   ],
   "execution": {
     "PowerShell3": {

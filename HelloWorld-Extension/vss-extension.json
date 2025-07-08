@@ -1,36 +1,36 @@
 {
     "manifestVersion": 1,
-    "id": "First-Extension-HelloWorld",
-    "version": "1.0.0",
-    "name": "Hello World",
-    "publisher": "Helloworld-task",
-    "description": "A Azure Build Task that prints Hello World to the Console.",
+    "id": "HelloWorld-task",
+    "version": "2.0.1",
+    "name": "Hello World Task",
+    "publisher": "AbhishekOrg",
+    "description": "This task welcome user to the console.",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
     ],
     "icons": {
-        "default": "images/Hello.png"
+        "default": "HelloWorld/icon.png"
     },
     "categories": [
         "Azure Pipelines"
     ],
     "contributions": [
         {
-            "id": "Helloworld",
+            "id": "HelloWorld-build-release-task",
             "type": "ms.vss-distributed-task.task",
             "targets": [
                 "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "buildAndReleaseTask"
+                "name": "HelloWorld"
             }
         }
     ],
     "files": [
         {
-            "path": "buildAndReleaseTask"
+            "path": "HelloWorld"
         }
     ]
 }
