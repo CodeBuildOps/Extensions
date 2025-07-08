@@ -22,10 +22,12 @@ jobs:
       lfs: true
     
     - task: HelloWorld@2
+      displayName: HelloWorld-Extension
       inputs:
         name: 'Abhishek'
     
     - task: PromoteToView@1
+      displayName: PromoteToView-Extension
       inputs:
         feedName: 'TestPromote'
         feedScoped: 'Organization'
