@@ -1,0 +1,68 @@
+{
+  "id": "efb174e0-5332-11f0-9fc1-1d1ce874fb07",
+  "name": "PromoteToView",
+  "friendlyName": "Promote To View Task",
+  "description": "Promotes packages to a specific view in an Azure DevOps feed.",
+  "author": "Abhishek Kumar Singh",
+  "helpMarkDown": "",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "runsOn": [
+    "Agent",
+    "DeploymentGroup"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "0"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Promote To View ",
+  "inputs": [
+    {
+      "name": "feedName",
+      "type": "string",
+      "label": "Feed Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Enter Feed Name where the package is to be promoted"
+    },
+    {
+      "name": "feedScoped",
+      "type": "string",
+      "label": "Feed Scoped",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Enter Feed Scoped. E.g. Project or Organization"
+    },
+    {
+      "name": "view",
+      "type": "string",
+      "label": "View",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Enter View Name where the package is to be promoted. E.g. Local, IDA, Release"
+    },
+    {
+      "name": "nugetPackageMappingFilePath",
+      "type": "string",
+      "label": "NuGet package mapping file path",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Path to NuGet package mapping file"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "main.ps1",
+      "platforms": [
+        "windows"
+      ],
+      "workingDirectory": "$(currentDirectory)"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+A custom extension task that promotes packages to a specific view in an Azure DevOps feed.
