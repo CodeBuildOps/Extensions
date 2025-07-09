@@ -4,7 +4,7 @@
   "friendlyName": "Promote To View Task",
   "description": "Promotes packages to a specific view in an Azure DevOps feed.",
   "author": "Abhishek Kumar Singh",
-  "helpMarkDown": "",
+  "helpMarkDown": "This task will promotes packages to a specific view in an Azure DevOps feed.",
   "category": "Utility",
   "visibility": [
     "Build",
@@ -18,7 +18,7 @@
   "version": {
     "Major": "1",
     "Minor": "0",
-    "Patch": "4"
+    "Patch": "5"
   },
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "Promote To View ",
