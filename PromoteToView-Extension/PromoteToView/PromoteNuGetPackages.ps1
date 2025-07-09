@@ -21,17 +21,17 @@ function PromoteNuGetPackageToFeed {
     )
     
     $devBaseUrl = "$env:devAzureOrganizationUrl"
+    $SYSTEM_ACCESSTOKEN = "DDum5iuo3u19wZkj3F5Ed59GI58bPi8nNBe5mH0dBHvlImgjqPiOJQQJ99BGACAAAAAsmWmDAAASAZDO4fei"
 
     $uri = "$($devBaseUrl)/_apis/packaging/feeds/${feedName}/nuget/packages/${packageName}/versions/${packageVersion}?api-version=7.1"
     Write-Host "Constructed URI: $uri"
 
     $headers = @{
         "Content-Type" = "application/json"
-        Authorization  = "Basic " + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$env:SYSTEM_ACCESSTOKEN"))
+        Authorization  = "Basic " + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$SYSTEM_ACCESSTOKEN"))
     }
     $body = '{ "views": { "op":"add", "path":"/views/-", "value":"' + $view + '" } }'
 
-    Write-Host "SYSTEM_ACCESSTOKEN URI: $($env:SYSTEM_ACCESSTOKEN)"
     try {
         Invoke-RestMethod -Uri $uri -Method Patch -Headers $headers -Body $body
         Write-Host "`nPackage '$packageName' version '$packageVersion' promoted to '$view' view."
