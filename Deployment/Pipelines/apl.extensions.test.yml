@@ -40,7 +40,7 @@ jobs:
       displayName: PromoteToView-Extension
       inputs:
         feedName: 'TestPromote'
-        feedScoped: 'Organization'
+        feedScoped: 'Project'
         view: 'Release'
         nugetPackageMappingFilePath: '$(build.sourcesdirectory)/Inputs to Extensions/NugetPackageMapping.psd1'
       env:
