@@ -1,3 +1,8 @@
+# Debugging
+# .\PromoteNuGetPackages.ps1 -feedName "TestPromote" -feedScoped "Organization" -view "Release" -nugetPackageMappingFilePath "D:\Extensions\Inputs to Extensions\NugetPackageMapping.psd1"
+# $devBaseUrl = "https://pkgs.dev.azure.com/AbhishekORG"
+# $SYSTEM_ACCESSTOKEN = "DDum5iuo3u19wZkj3F5Ed59GI58bPi8nNBe5mH0dBHvlImgjqPiOJQQJ99BGACAAAAAsmWmDAAASAZDO4fei"
+
 [CmdletBinding()]
 
 param (
@@ -14,8 +19,12 @@ function PromoteNuGetPackageToFeed {
         [string]$packageName,
         [string]$packageVersion
     )
+    
+    $devBaseUrl = "$env:devAzureOrganizationUrl"
 
     $uri = "$($devBaseUrl)/_apis/packaging/feeds/${feedName}/nuget/packages/${packageName}/versions/${packageVersion}?api-version=7.1"
+    Write-Host "Constructed URI: $uri"
+
     $headers = @{
         "Content-Type" = "application/json"
         Authorization  = "Basic " + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$env:SYSTEM_ACCESSTOKEN"))
@@ -39,8 +48,6 @@ if (Test-Path -Path $nugetPackageMappingFilePath) {
 else {
     Write-Error "NugetPackageMapping.psd1 file not found in the script directory: $nugetPackageMappingFilePath"
 }
-
-$devBaseUrl = "$env:devAzureOrganizationUrl"
 
 foreach ($package in $nugetPackageVersionMapping.GetEnumerator()) {
     $packageName = $package.Key
