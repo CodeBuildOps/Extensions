@@ -6,10 +6,6 @@ trigger:
     include:
     - main
 
-variables:
-  - name: devAzureOrganizationUrl
-    value: 'https://pkgs.dev.azure.com/AbhishekORG'
-
 pool:
   vmImage: 'windows-latest'
 
@@ -33,3 +29,6 @@ jobs:
         feedScoped: 'Organization'
         view: 'Prerelease'
         nugetPackageMappingFilePath: '$(build.sourcesdirectory)\Inputs to Extensions\NugetPackageMapping.psd1'
+      env:
+        SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+        devAzureOrganizationUrl: https://pkgs.dev.azure.com/AbhishekORG
