@@ -31,6 +31,7 @@ function PromoteNuGetPackageToFeed {
     }
     $body = '{ "views": { "op":"add", "path":"/views/-", "value":"' + $view + '" } }'
 
+    Write-Host "SYSTEM_ACCESSTOKEN URI: $($env:SYSTEM_ACCESSTOKEN)"
     try {
         Invoke-RestMethod -Uri $uri -Method Patch -Headers $headers -Body $body
         Write-Host "`nPackage '$packageName' version '$packageVersion' promoted to '$view' view."
