@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
+variables:
+  - group: 'Extension Pipeline Global'
+
 jobs:
   - job: Test
     displayName: 'Test Extensions'
@@ -27,8 +30,8 @@ jobs:
       inputs:
         feedName: 'TestPromote'
         feedScoped: 'Organization'
-        view: 'Prerelease'
+        view: 'Release'
         nugetPackageMappingFilePath: '$(build.sourcesdirectory)\Inputs to Extensions\NugetPackageMapping.psd1'
       env:
         SYSTEM_ACCESSTOKEN: $(System.AccessToken)
-        devAzureOrganizationUrl: https://pkgs.dev.azure.com/AbhishekORG
+        devAzureOrganizationUrl: $(devAzureOrganizationUrl)
