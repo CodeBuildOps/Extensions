@@ -24,7 +24,7 @@ jobs:
       displayName: NuGet Push
       inputs:
         command: 'push'
-        packagesToPush: '$(Build.ArtifactStagingDirectory)/Inputs to Extensions/DummyNuGet/**/*.nupkg;'
+        packagesToPush: '$(build.sourcesdirectory)/Inputs to Extensions/DummyNuGet/**/*.nupkg;'
         nuGetFeedType: 'internal'
         publishVstsFeed: '02527a4c-54da-4136-b1f7-1e63a9a004cf'
     
@@ -39,7 +39,7 @@ jobs:
         feedName: 'TestPromote'
         feedScoped: 'Organization'
         view: 'Release'
-        nugetPackageMappingFilePath: '$(build.sourcesdirectory)\Inputs to Extensions\NugetPackageMapping.psd1'
+        nugetPackageMappingFilePath: '$(build.sourcesdirectory)/Inputs to Extensions/NugetPackageMapping.psd1'
       env:
         SYSTEM_ACCESSTOKEN: $(SYSTEM_ACCESSTOKEN)
         devAzureOrganizationUrl: $(devAzureOrganizationUrl)
