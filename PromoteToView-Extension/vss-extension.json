@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "PromoteToView-task",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "name": "Promote To View Task",
     "publisher": "AbhishekOrg",
     "description": "This task will promotes packages to a specific view in an Azure DevOps feed.",
