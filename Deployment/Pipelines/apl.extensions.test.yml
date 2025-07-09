@@ -31,7 +31,7 @@ jobs:
         feedName: 'TestPromote'
         feedScoped: 'Organization'
         view: 'Release'
-        nugetPackageMappingFilePath: 'Inputs to Extensions/NugetPackageMapping.psd1' #'$(build.sourcesdirectory)/Inputs to Extensions/NugetPackageMapping.psd1'
+        nugetPackageMappingFilePath: '$(build.sourcesdirectory)/Inputs to Extensions/NugetPackageMapping.psd1'
       env:
         SYSTEM_ACCESSTOKEN: $(SYSTEM_ACCESSTOKEN)
         devAzureOrganizationUrl: $(devAzureOrganizationUrl)
