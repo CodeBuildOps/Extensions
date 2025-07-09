@@ -35,3 +35,14 @@ jobs:
       env:
         SYSTEM_ACCESSTOKEN: $(SYSTEM_ACCESSTOKEN)
         devAzureOrganizationUrl: $(devAzureOrganizationUrl)
+    
+    - task: PromoteToView@2
+      displayName: PromoteToView-Extension
+      inputs:
+        feedName: 'TestPromote'
+        feedScoped: 'Organization'
+        view: 'Release'
+        nugetPackageMappingFilePath: '$(build.sourcesdirectory)/Inputs to Extensions/NugetPackageMapping.psd1'
+      env:
+        SYSTEM_ACCESSTOKEN: $(SYSTEM_ACCESSTOKEN)
+        devAzureOrganizationUrl: $(devAzureOrganizationUrl)
