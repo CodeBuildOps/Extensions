@@ -20,6 +20,14 @@ jobs:
     - checkout: self
       lfs: true
     
+    - task: NuGetCommand@2
+      displayName: NuGet Push
+      inputs:
+        command: 'push'
+        packagesToPush: '$(Build.ArtifactStagingDirectory)/Inputs to Extensions/DummyNuGet/**/*.nupkg;'
+        nuGetFeedType: 'internal'
+        publishVstsFeed: '02527a4c-54da-4136-b1f7-1e63a9a004cf'
+    
     - task: HelloWorld@2
       displayName: HelloWorld-Extension
       inputs:
