@@ -1,4 +1,4 @@
-name: $(Build.DefinitionName)_$(Build.SourceBranchName)_1.0.0.$(rev:rrr)
+name: 1.0.0.$(rev:rrr)
 
 trigger:
   batch: true
@@ -14,12 +14,12 @@ variables:
 
 jobs:
   - job: Test
-    displayName: 'Test Extensions'
+    displayName: 'Extensions Test'
     steps:
 
     - checkout: self
       lfs: true
-    
+
     - task: HelloWorld@2
       displayName: HelloWorld-Extension
       inputs:
@@ -31,7 +31,7 @@ jobs:
         feedName: 'TestPromote'
         feedScoped: 'Organization'
         view: 'Release'
-        nugetPackageMappingFilePath: '$(build.sourcesdirectory)\Inputs to Extensions\NugetPackageMapping.psd1'
+        nugetPackageMappingFilePath: '$(build.sourcesdirectory)/Inputs to Extensions/NugetPackageMapping.psd1'
       env:
         SYSTEM_ACCESSTOKEN: $(SYSTEM_ACCESSTOKEN)
         devAzureOrganizationUrl: $(devAzureOrganizationUrl)
