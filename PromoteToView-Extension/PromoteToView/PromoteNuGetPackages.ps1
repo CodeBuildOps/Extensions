@@ -1,7 +1,7 @@
 # Debugging
 # .\PromoteNuGetPackages.ps1 -feedName "TestPromote" -feedScoped "Organization" -view "Release" -nugetPackageMappingFilePath "D:\Extensions\Inputs to Extensions\NugetPackageMapping.psd1"
 # $devBaseUrl = "https://pkgs.dev.azure.com/AbhishekORG"
-# $SYSTEM_ACCESSTOKEN = "DDum5iuo3u19wZkj3F5Ed59GI58bPi8nNBe5mH0dBHvlImgjqPiOJQQJ99BGACAAAAAsmWmDAAASAZDO4fei"
+# $pat = "DDum5iuo3u19wZkj3F5Ed59GI58bPi8nNBe5mH0dBHvlImgjqPiOJQQJ99BGACAAAAAsmWmDAAASAZDO4fei"
 
 [CmdletBinding()]
 
@@ -21,20 +21,20 @@ function PromoteNuGetPackageToFeed {
     )
     
     $devBaseUrl = "$env:devAzureOrganizationUrl"
-    $SYSTEM_ACCESSTOKEN = "DDum5iuo3u19wZkj3F5Ed59GI58bPi8nNBe5mH0dBHvlImgjqPiOJQQJ99BGACAAAAAsmWmDAAASAZDO4fei"
+    $pat = "$env:SYSTEM_ACCESSTOKEN"
 
     $uri = "$($devBaseUrl)/_apis/packaging/feeds/${feedName}/nuget/packages/${packageName}/versions/${packageVersion}?api-version=7.1"
     Write-Host "Constructed URI: $uri"
 
     $headers = @{
         "Content-Type" = "application/json"
-        Authorization  = "Basic " + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$SYSTEM_ACCESSTOKEN"))
+        Authorization  = "Basic " + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$pat"))
     }
     $body = '{ "views": { "op":"add", "path":"/views/-", "value":"' + $view + '" } }'
 
     try {
         Invoke-RestMethod -Uri $uri -Method Patch -Headers $headers -Body $body
-        Write-Host "`nPackage '$packageName' version '$packageVersion' promoted to '$view' view."
+        Write-Host "Package '$packageName' version '$packageVersion' promoted to '$view' view."
     }
     catch {
         Write-Error "Failed to promote the package in PromoteNuGetPackageToFeed() : $_"
