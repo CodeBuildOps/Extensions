@@ -20,7 +20,7 @@ jobs:
     - checkout: self
       lfs: true
 
-    - task: HelloWorld@2
+    - task: HelloWorld@1
       displayName: HelloWorld-Extension
       inputs:
         name: 'Abhishek'
