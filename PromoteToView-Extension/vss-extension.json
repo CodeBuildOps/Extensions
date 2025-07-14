@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "PromoteToView-task",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "name": "Promote To View Task",
     "publisher": "AbhishekOrg",
     "description": "This task will promotes packages to a specific view in an Azure DevOps feed.",
@@ -11,7 +11,7 @@
         }
     ],
     "icons": {
-        "default": "PromoteToView/icon.png"
+        "default": "images/extension-icon.png"
     },
     "categories": [
         "Azure Pipelines"

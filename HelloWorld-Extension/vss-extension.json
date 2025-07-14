@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "HelloWorld-task",
-    "version": "2.0.2",
+    "version": "1.0.0",
     "name": "Hello World Task",
     "publisher": "AbhishekOrg",
     "description": "This task welcome user to the console.",
@@ -11,7 +11,7 @@
         }
     ],
     "icons": {
-        "default": "HelloWorld/icon.png"
+        "default": "images/extension-icon.png"
     },
     "categories": [
         "Azure Pipelines"
