@@ -1,0 +1,1 @@
+A custom extension task that apply the version in AssemblyInfo.cs.

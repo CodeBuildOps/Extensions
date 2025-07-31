@@ -1,0 +1,67 @@
+{
+  "id": "efb174e0-5332-11f0-9fc1-1d1ce874fb08",
+  "name": "ApplyVersion",
+  "friendlyName": "Apply Version Task",
+  "description": "Apply the version in AssemblyInfo.cs.",
+  "author": "Abhishek Kumar Singh",
+  "helpMarkDown": "This task will apply the version in AssemblyInfo.cs.",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "runsOn": [
+    "Agent",
+    "DeploymentGroup"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "4"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Apply Version ",
+  "inputs": [
+    {
+      "name": "SourceFolder",
+      "type": "string",
+      "label": "Source folder",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Source folder path of project."
+    },
+    {
+      "name": "Product",
+      "type": "string",
+      "label": "Product name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Product name to be applied on the assemblies or files."
+    },
+    {
+      "name": "Copyright",
+      "type": "string",
+      "label": "Copyright date",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Provide the year when your software was first released."
+    },
+    {
+      "name": "Company",
+      "type": "string",
+      "label": "Company name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Provide your company name"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "main.ps1",
+      "platforms": [
+        "windows"
+      ]
+    }
+  }
+}

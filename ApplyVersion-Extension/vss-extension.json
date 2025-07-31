@@ -1,0 +1,36 @@
+{
+    "manifestVersion": 1,
+    "id": "ApplyVersion-task",
+    "version": "1.0.3",
+    "name": "Apply Version Task",
+    "publisher": "AbhishekOrg",
+    "description": "This task will apply the version in AssemblyInfo.cs",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "icons": {
+        "default": "images/extension-icon.png"
+    },
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "contributions": [
+        {
+            "id": "ApplyVersion-build-release-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "ApplyVersion"
+            }
+        }
+    ],
+    "files": [
+        {
+            "path": "ApplyVersion"
+        }
+    ]
+}

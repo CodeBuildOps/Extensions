@@ -11,6 +11,8 @@ pool:
 
 variables:
   - group: 'Extension Pipeline Global'
+  - name: InputsToExtension
+    value: $(build.sourcesdirectory)/Inputs to Extensions
 
 jobs:
   - job: Test
@@ -31,7 +33,14 @@ jobs:
         feedName: 'TestPromote'
         feedScoped: 'Organization'
         view: 'Release'
-        nugetPackageMappingFilePath: '$(build.sourcesdirectory)/Inputs to Extensions/NugetPackageMapping.psd1'
+        nugetPackageMappingFilePath: '$(InputsToExtension)/NugetPackageMapping.psd1'
       env:
         SYSTEM_ACCESSTOKEN: $(SYSTEM_ACCESSTOKEN)
         devAzureOrganizationUrl: $(devAzureOrganizationUrl)
+    
+    - task: ApplyVersion@1
+      inputs:
+        SourceFolder: '$(InputsToExtension)/ApplyVersion'
+        Product: 'CodeBuildOps ApplyVersion'
+        Copyright: '2025'
+        Company: 'CodeBuildOps'
