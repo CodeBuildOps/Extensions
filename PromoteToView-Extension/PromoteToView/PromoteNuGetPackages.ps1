@@ -5,11 +5,6 @@
 # Date: 11.04.2025                                                                                                                                  #
 #===================================================================================================================================================#
 
-# Debugging
-# .\PromoteNuGetPackages.ps1 -feedName "TestPromote" -feedScoped "Organization" -view "Release" -nugetPackageMappingFilePath "D:\Extensions\Inputs to Extensions\NugetPackageMapping.psd1"
-# $devBaseUrl = "https://pkgs.dev.azure.com/AbhishekORG"
-# $SYSTEM_ACCESSTOKEN = "DDum5iuo3u19wZkj3F5Ed59GI58bPi8nNBe5mH0dBHvlImgjqPiOJQQJ99BGACAAAAAsmWmDAAASAZDO4fei"
-
 [CmdletBinding()]
 
 param (
