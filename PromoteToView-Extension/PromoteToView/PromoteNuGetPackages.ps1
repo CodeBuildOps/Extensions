@@ -1,10 +1,3 @@
-#===================================================================================================================================================#
-# The script retrieves package versions from the installation path and promotes them to a specific view in an Azure DevOps feed via the REST API.   #
-#                                                                                                                                                   #
-# Author: Abhishek Kumar Singh                                                                                                                      #
-# Date: 11.04.2025                                                                                                                                  #
-#===================================================================================================================================================#
-
 [CmdletBinding()]
 
 param (
